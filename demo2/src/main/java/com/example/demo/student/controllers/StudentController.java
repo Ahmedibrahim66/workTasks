@@ -15,17 +15,17 @@ public class StudentController {
     StudentServiceImplementation testService;
 
     @PostMapping(value = "/students")
-    public void addStudent(@RequestBody Students student){
+    public void addStudent(@RequestBody Students student) {
         testService.addStudent(student);
     }
 
     @GetMapping(value = "/studentsSQL")
-    public List<Students> getStudentsSQL(){
+    public List<Students> getStudentsSQL() {
         return testService.getStudentsSQL();
     }
 
     @GetMapping(value = "/studentsPostgres")
-    public List<Students> getStudentsPostgres(){
+    public List<Students> getStudentsPostgres() {
         return testService.getStudentsPostgres();
     }
 

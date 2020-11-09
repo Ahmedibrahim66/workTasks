@@ -20,7 +20,7 @@ import java.util.HashMap;
 @Configuration
 @EnableJpaRepositories(
         basePackages = {"com.example.demo.student.data.mysql"},
-        basePackageClasses = { StudentRepositoryMySQL.class },
+        basePackageClasses = {StudentRepositoryMySQL.class},
         entityManagerFactoryRef = "studentEntityManagerFactormymysql",
         transactionManagerRef = "studentTransactionManagermysql"
 
@@ -28,8 +28,7 @@ import java.util.HashMap;
 public class MySQLDataSourceConfig {
 
     @Bean(name = "mysqlDataSource")
-    public DataSource mysqlDataSource()
-    {
+    public DataSource mysqlDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.url("jdbc:mysql://localhost:3306/taskone?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         dataSourceBuilder.username("root");
@@ -45,9 +44,9 @@ public class MySQLDataSourceConfig {
             @Qualifier("mysqlDataSource") DataSource dataSource
     ) {
         HashMap<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.ddl-auto" , "update");
-        properties.put("hibernate.dialect" , "org.hibernate.dialect.MySQL5Dialect");
-        properties.put("hibernate.jdbc.lob.non_contextual_creation" , "true");
+        properties.put("hibernate.ddl-auto", "update");
+        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        properties.put("hibernate.jdbc.lob.non_contextual_creation", "true");
 
 
         return builder
@@ -71,9 +70,6 @@ public class MySQLDataSourceConfig {
     public EntityManagerFactoryBuilder entityManagerFactoryBuilder() {
         return new EntityManagerFactoryBuilder(new HibernateJpaVendorAdapter(), new HashMap<>(), null);
     }
-
-
-
 
 
 }

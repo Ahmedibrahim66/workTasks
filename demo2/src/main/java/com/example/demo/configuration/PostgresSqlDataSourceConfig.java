@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackageClasses = { StudentRepositoryPostgresSQL.class },
+        basePackageClasses = {StudentRepositoryPostgresSQL.class},
         entityManagerFactoryRef = "studentEntityManagerFactory",
         basePackages = {"com.example.demo.student.data.postgresSQL"},
         transactionManagerRef = "studentTransactionManager"
@@ -34,8 +34,7 @@ public class PostgresSqlDataSourceConfig {
     @ConfigurationProperties(
             prefix = "spring.postgres.datasource"
     )
-    public DataSource postgresDataSource()
-    {
+    public DataSource postgresDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.url("jdbc:postgresql://localhost:5432/TaskOne");
         dataSourceBuilder.username("postgres");
@@ -51,9 +50,9 @@ public class PostgresSqlDataSourceConfig {
             @Qualifier("postgresDataSource") DataSource dataSource
     ) {
         HashMap<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.ddl-auto" , "update");
-        properties.put("hibernate.dialect" , "org.hibernate.dialect.PostgreSQLDialect");
-        properties.put("hibernate.jdbc.lob.non_contextual_creation" , "true");
+        properties.put("hibernate.ddl-auto", "update");
+        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        properties.put("hibernate.jdbc.lob.non_contextual_creation", "true");
 
         return builder
                 .dataSource(dataSource)

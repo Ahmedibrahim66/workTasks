@@ -7,7 +7,9 @@ import java.util.List;
 public interface StudentService {
 
     public void addStudent(Students student);
+
     public List<Students> getStudentsSQL();
+
     public List<Students> getStudentsPostgres();
 
 

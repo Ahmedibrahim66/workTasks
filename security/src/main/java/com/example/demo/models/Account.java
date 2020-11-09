@@ -1,7 +1,6 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -29,8 +28,6 @@ public class Account {
     @OneToMany(orphanRemoval=false , mappedBy = "account")
     @JsonIgnore
     private List<Transaction> transactions = new ArrayList<>();
-
-
 
     public Account(String currency, int balance) {
         this.currency = currency;
