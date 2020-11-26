@@ -8,12 +8,11 @@ import org.springframework.messaging.SubscribableChannel;
 
 public interface OrderChannel {
 
-    String INPUT = "inventory-out";
     String OUTPUT = "order-out";
 
-    @Input(INPUT)
-    SubscribableChannel inboundOrder();
 
     @Output(OUTPUT)
     MessageChannel outboundOrder();
+
+
 }

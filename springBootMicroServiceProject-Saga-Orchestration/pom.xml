@@ -5,6 +5,7 @@
 
     <groupId>com.baeldung</groupId>
     <artifactId>parent-multi-module</artifactId>
+
     <packaging>pom</packaging>
 
     <version>0.0.1-SNAPSHOT</version>
@@ -17,7 +18,7 @@
         <module>eurkaServer</module>
         <module>AnotherService</module>
         <module>gateway</module>
+        <module>orchestration-server</module>
     </modules>
-
 
 </project>

@@ -92,4 +92,13 @@ public class RandomServiceController {
         return orderService.createOrder(request);
     }
 
+    @PostMapping(value = "/compensate/order")
+    public void compensateOrder(){
+        //TODO: create order service
+        Long itemId = Long.valueOf(234);
+        orderService.compensateOrder(itemId);
+    }
+
+
+
 }

@@ -21,15 +21,16 @@ public class InventoryService {
 	@Autowired
 	private ItemOutOfStockEventSource itemOutOfStockEventSource;
 	
-	public void fetchItem(Long orderId) {
-		
+	public void fetchItem() {
+
+		Long orderId = Long.valueOf(3);
 		/*inventory service will call order service to find out item id for order id*/
 		Long itemId = getItemFromOrderService(orderId);
 		
 		Boolean isInStock = isItemExistsInItemDatabase(itemId);
 		
 		if(isInStock) {
-//			itemFetchedEventSource.publishItemFetchedEvent(orderId,itemId);
+			itemFetchedEventSource.publishItemFetchedEvent(orderId,itemId);
 			logger.info("item is fetched successfully");
 		}else {
 			itemOutOfStockEventSource.publishItemOutOfStockEvent(orderId, itemId);
